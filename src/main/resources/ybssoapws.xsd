@@ -1,0 +1,106 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://unet.uab.gov.tr/spring-boot-soap-ws"
+           targetNamespace="http://unet.uab.gov.tr/spring-boot-soap-ws"
+           elementFormDefault="qualified">
+
+    <!-- Metodlar ve response , request değerlerin tanımlanması -->
+    <xs:element name="getYbsIlByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ilId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getYbsIlByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlDto" type="tns:ybsIlDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllYbsIlRequest">
+        <xs:complexType/>
+    </xs:element>
+
+
+    <xs:element name="getAllYbsIlResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlDto" type="tns:ybsIlDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addYbsIlRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ad" type="xs:long"/>
+                <xs:element name="ilKodu" type="xs:string"/>
+                <xs:element name="plakaKodu" type="xs:string"/>
+                <xs:element name="ulked" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addYbsIlResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlStatus" type="tns:ybsIlStatus"/>
+                <xs:element name="ybsIlDto" type="tns:ybsIlDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateYbsIlRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlDto" type="tns:ybsIlDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateYbsIlResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlStatus" type="tns:ybsIlStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteYbsIlRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteYbsIlResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ybsIlStatus" type="tns:ybsIlStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- end metod-->
+
+    <!-- Bir Çok Kez Kullanılan Dto nesnelerinin tanımlanması -->
+    <xs:complexType name="ybsIlDto">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="ilKodu" type="xs:string"/>
+            <xs:element name="ad" type="xs:string"/>
+            <xs:element name="plakaKodu" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ybsIlStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- end dto -->
+</xs:schema>

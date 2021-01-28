@@ -1,0 +1,34 @@
+************** pom.xml ****************************************************************************************************************************************
+spring-boot-starter-web-services :
+    Spring web servisleri için Spring Boot starter.
+
+wsdl4j :
+    WSDL belgelerinin oluþturulmasýna, temsil edilmesine ve deðiþtirilmesine izin verir.
+
+jaxb2-maven-eklentisi :
+    XML þemalarýndan Java sýnýflarý üretir.
+
+************* Endpoint Packege Kavramlar ***********************************************************************************************************************
+
+@Endpoint : Spring WS'ye gelen SOAP mesajlarýný iþlemek için potansiyel bir aday olarak kaydeder.
+
+@PayloadRoot : ek açýklamasý daha sonra Spring WS tarafýndan mesajýn namespace ve localPart'a göre iþleyici yöntemini seçmek için kullanýlýr.
+
+@RequestPayload : gelen mesajýn yöntemin istek parametresiyle eþleneceðini belirtir.
+
+@ResponsePayload : Spring WS'nin döndürülen deðeri yanýt yüküne eþlemesini saðlar.
+
+************ Config Package Kavramlar  ve Config Ýþlemi *********************************************************************************************************
+
+@EnableWs ve WsConfigurerAdapter ile geniþletilmiþ java yapýlandýrma sýnýfý oluþturuyoruz.
+Sonrasýnda wsdl iþlemi için DefaultWsdl11Definition @Bean web servisini yapýlandýrýyoruz.
+
+@EnableWs :  Spring web hizmeti Java yapýlandýrma sýnýfý oluþturacaðýz.
+
+DefaultWsdl11Definition : Baðlantý noktasý türü adý, konum URI'si, hedef ad alaný, þema vb. Gibi WSDL tanýmlarýný yapýlandýrýr.
+
+XsdSchema :  XSD þemalarý için bir soyutlamayý temsil eder.
+
+ServletRegistrationBean :  uygulama baðlamýný, URL eþlemelerini vb. Yapýlandýrýr.
+
+@EnableWs :  WsConfigurerAdapter içinde tanýmlanan Spring web hizmetlerine sahip olmak için @Configuration ile birlikte kullanýlýr.
